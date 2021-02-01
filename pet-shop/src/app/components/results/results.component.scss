@@ -1,0 +1,53 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.recipe-details {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    background: white;
+
+    > div {
+        vertical-align: top;
+        display: inline-block;
+
+        &:first-child {
+            margin-right: 10px;
+            width: 100px;
+
+            > img {
+                width: 100px;
+            }
+        }
+    }
+
+    .recipe-title {
+        font-weight: bold;
+        font-size: larger;
+    }
+
+    .recipe-ingredients {
+        max-width: 400px;
+        word-wrap: break-word;
+    }
+
+    > fa-icon {
+        float: right;
+        cursor:  pointer;
+
+        &.favourite {
+            color: gold;
+        }
+    }
+}
+
+.alert-container {
+    margin-bottom: 20px;
+
+    .recipe-alert {
+        background: red;
+        color: white;
+        padding: 5px 10px;
+    }
+}

@@ -1,0 +1,25 @@
+<div *ngIf="alerts.length" class="alert-container">
+    <h4>Alerts ({{ alerts.length }})</h4>
+    <div class="recipe-alert" *ngFor="let recipeAlert of alerts" (click)="update()">
+        Found {{ recipeAlert.results.length }} new recipe(s) for
+        <span *ngIf="recipeAlert.ingredients.length">the ingredient(s) {{ recipeAlert.ingredients }}</span>
+        <span *ngIf="recipeAlert.ingredients.length && recipeAlert.name">and</span>
+        <span *ngIf="recipeAlert.name">the name {{ recipeAlert.name }}</span>
+        - click to update
+    </div>
+</div>
+
+
+<h4 *ngIf="hasSearched">Results ({{ recipes.length }})</h4>
+
+<div *ngFor="let recipe of recipes" class="recipe-details">
+    <div>
+        <img [src]="recipe.thumbnail" />
+    </div>
+    <div>
+        <div class="recipe-title">{{ recipe.title }}</div>
+        <div class="recipe-ingredients">{{ recipe.ingredients }}</div>
+        <div><a [href]="recipe.href" target="_blank">Click here to read</a></div>
+    </div>
+    <fa-icon [icon]="faStar" (click)="toggleFavourite(recipe.title)" [class.favourite]="isFavourite(recipe.title)"></fa-icon>
+</div>
